@@ -1,8 +1,11 @@
+const prompt = require("prompt-sync")();
+
 //initializing the necessary variables
-const basicSalary = prompt("Enter your basic salary");
-const benefits = prompt("Enter your benefits");
+const basicSalary = parseInt(prompt("Enter your basic salary: "));
+const benefits = parseInt(prompt("Enter your benefits: "));
 //calculating the gross salary from basic salary and benefits inputted above
 const grossSalary = basicSalary + benefits;
+console.log(`grossSalary: ${grossSalary}`);
 let payee;
 let nhif;
 let nssf;
@@ -73,9 +76,11 @@ function getNetSalary() {
     //calculates the net salary using the return values of the respective functions above
     let netSalary = grossSalary - (getPayee() + getNHIF() + getNSSF());
     //we return the net salary, nhif tax, nssf tax and the paye tax
-    return [
-      `Payee: ${getPayee()}, NHIF: ${getNHIF()}, NSSF: ${getNSSF()}, Net Salary: ${netSalary}`,
-    ];
+    console.log(`Payee: ${getPayee()}`);
+    console.log(`NHIF: ${getNHIF()}`);
+    console.log(`NSSF: ${getNSSF()}`);
+    console.log(`Net Salary: ${netSalary}`);
+    return [getPayee(), getNHIF(), getNSSF(), netSalary];
   };
 }
 //we invoke the function that runs all the functions created above
