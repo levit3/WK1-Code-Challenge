@@ -14,16 +14,16 @@ let nssf;
 function getNetSalary() {
   //function that calculates the payee(Tax) as per the basic salary initiated above
   function getPayee() {
-    if (basicSalary <= 24000) {
-      payee = 0.1 * basicSalary;
-    } else if (basicSalary > 24000 && basicSalary <= 32333) {
-      payee = 0.25 * basicSalary;
-    } else if (basicSalary > 32333 && basicSalary <= 500000) {
-      payee = 0.3 * basicSalary;
-    } else if (basicSalary > 500000 && basicSalary <= 800000) {
-      payee = 0.325 * basicSalary;
+    if (grossSalary <= 24000) {
+      payee = 0.1 * grossSalary;
+    } else if (grossSalary <= 32333) {
+      payee = 0.25 * grossSalary;
+    } else if (grossSalary <= 500000) {
+      payee = 0.3 * grossSalary;
+    } else if (grossSalary <= 800000) {
+      payee = 0.325 * grossSalary;
     } else {
-      payee = 0.35 * basicSalary;
+      payee = 0.35 * grossSalary;
     }
     return payee;
   }
@@ -61,7 +61,7 @@ function getNetSalary() {
       nhif = 1500;
     } else if (grossSalary >= 90000 && grossSalary < 100000) {
       nhif = 1600;
-    } else if (grossSalary >= 100000) {
+    } else {
       nhif = 1700;
     }
     return nhif;
