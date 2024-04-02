@@ -68,7 +68,11 @@ function getNetSalary() {
     //calculates the nssf tax
   }
   function getNSSF() {
-    nssf = 0.06 * grossSalary;
+    if (grossSalary < 36000) {
+      nssf = 0.06 * grossSalary;
+    } else {
+      nssf = 36000 * 0.06;
+    }
     return nssf;
   }
   //here we return an embedded function that calculates the net salary and returns the net salary, nhif tax, nssf tax and the paye tax
